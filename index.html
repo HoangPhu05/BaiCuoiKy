@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/s4f0cb7e4a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="video-container">
+    <video src="video/videonen.mp4" autoplay muted loop onclick="showAd()"></video>
+  </div>
+  <!-- Cửa sổ quảng cáo -->
+  <div class="ad-popup" id="ad-popup">
+    <button class="close-btn" onclick="closeAdPopup()">X</button>
+    
+    <h2>Ưu Đãi Hè Này!</h2>
+    <p>Tặng 10 ngày nghỉ miễn phí tại khách sạn khi đặt tour Hè 2025.</p>
+    
+    <a href="tour.html"><button data-i18n="book_tour">Đặt Tour</button></a>
+  </div>
+  
+  <!---Icon AD-->
+  <div class="ad-icon" id="adIcon">
+    <span class="ad-close" id="closeAdIcon">×</span>
+    <img src="Hinh/ad.png" alt="Quảng Cáo">
+  </div>
+<!-- Trượt -->
+  <button id="scroll-to-top" title="Go to top"></button>
+
+
+
+<!-- Cài đặt ở góc dưới phải -->
+<div class="settings-container">
+  <div class="settings-icon">
+    <img src="Hinh/setting.jpg" alt="Cài đặt">
+  </div>
+  <div class="settings-options">
+    <!-- Nút chuyển ngôn ngữ -->
+    <button id="toggle-language" class="settings-button">
+      <img id="language-icon" src="Hinh/vn.jpg" alt="Lang Icon">
+      <span id="language-text">Tiếng Việt</span>
+    </button>
+    <!-- Nút chuyển chế độ sáng/tối -->
+    <button id="toggle-theme" class="settings-button">
+      <img id="theme-icon" src="Hinh/mattrang.jpg" alt="Theme Icon">
+      <span id="theme-text" data-i18n="dark_mode">Chế Độ Tối</span>
+    </button>
+  </div>
+</div>
+
+
+<!---------TKKKKKKKKKKKK-->
+<div class="search-toggle-icon" id="searchToggle">
+  <i class="fas fa-search"></i>
+</div>
+
+<div class="search-container minimized" id="searchContainer">
+  <input type="text" id="searchInput" placeholder="Search" oninput="searchFunction()">
+  <ul id="searchResults"></ul>
+</div>
+
+
+
+<!-- Modal to view image in full size -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+<!--Đầu-->
+  <header>
+    <div class="header-top">
+      
+      <i class="fa-solid fa-bars"></i>
+      <ul>
+        <img src="Hinh/logo.jpg" alt="Logo" class="logo" onclick="location.reload()">
+        <li style="--x:1;"><a href="#nice-place" data-i18n="highlighted_places">Địa điểm nổi bật</a></li>
+        <li style="--x:2;"><a href="#about" data-i18n="about_us">Về chúng tôi</a></li>
+        <li style="--x:3;"><a href="#tour" data-i18n="tour">Tour</a></li>
+        <li style="--x:4;"><a href="#review" data-i18n="feedback">Phản hồi</a></li>
+        <li style="--x:5;"><a href="#contact" data-i18n="contact">Liên hệ</a></li>
+        
+      </ul>    
+      
+    </div>
+</header>
+
+<!--Địa điểm nổi bật-->
+<section id="nice-place" class="nice-place">
+  <div class="container">
+    <h1 class="section-title" data-i18n="highlighted_places">Địa Điểm Nổi Bật</h1>
+    <div class="nice-place-content row">
+      <div class="nice-place-item fade-in">
+        <div class="nice-place-img">
+          <a href="halong.html"><img src="Hinh/halong.jpg" alt="Vịnh Hạ Long"></a>
+        </div>
+        <div class="nice-place-text">
+          <h2>Vịnh Hạ Long</h2>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <p data-i18n="halong_desc"></p>
+          <a href="tour.html"><button data-i18n="book_tour">Đặt Tour</button></a>
+        </div>
+      </div>
+
+      <div class="nice-place-item fade-in">
+        <div class="nice-place-img">
+          <a href="hue.html"><img src="Hinh/hue.jpg" alt="Huế"></a>
+        </div>
+        <div class="nice-place-text">
+          <h2>Huế</h2>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <p data-i18n="hue_desc"></p>
+          <a href="tour.html"><button data-i18n="book_tour">Đặt Tour</button></a>
+        </div>
+      </div>
+
+      <div class="nice-place-item fade-in">
+        <div class="nice-place-img">
+          <a href="phongnha.html"><img src="Hinh/phongnha.jpg" alt="Phong Nha"></a>
+        </div>
+        <div class="nice-place-text">
+          <h2>Phong Nha</h2>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <p data-i18n="phongnha_desc"></p>
+          <a href="tour.html"><button data-i18n="book_tour">Đặt Tour</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+  <!--------------Về chúng tôi------------------------->
+  <section id="about" class="about">
+    <div class="container">
+      <h1 class="fade-in" data-i18n="about_title">Thông tin về chúng tôi</h1>
+      <div class="about-centent-row">
+        <div class="about-centent-left fade-in">
+          <img src="a.jpg" alt="">
+        </div>
+        <div class="about-centent-right fade-in">
+          <h2 data-i18n="why_choose_us"></h2>
+          <p data-i18n="about_desc">
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="service row">
+      <div class="service-item fade-in">
+        <img src="Hinh/1.jpg" alt="Biểu tượng đặt tour">
+      </div>
+      <div class="service-item fade-in">
+        <img src="Hinh/3.jpg" alt="Biểu tượng dịch vụ 24/7">
+      </div>
+      <div class="service-item fade-in">
+        <img src="Hinh/2.jpg" alt="Biểu tượng sách hướng dẫn">
+      </div>
+    </div>
+  </section>
+  
+  
+      <!-- Tour ----------------------------- -->
+      <section id="tour" class="tour">
+        <div class="container">
+            <h1 class="tour-title fade-in" data-i18n="tour_title">Tour hè 2025</h1>
+            <div class="tour-content row">
+    
+                <!-- Tour 1 -->
+                <div class="tour-content-item row fade-in">
+                    <div class="tour-content-item-img">
+                        <img src="Hinh/halong1.jpg" alt="Vinh Ha Long" onclick="openModal('Hinh/halong1.jpg')">
+                    </div>
+                    <div class="tour-content-item-text">
+                        <h2 data-i18n="halong">Vịnh Hạ Long</h2>
+                        <p data-i18n="halong_desc"></p>
+                        <a href="halong.html"><button class="btn" data-i18n="learn_more">Tìm Hiểu</button></a>
+                    </div>
+                </div>
+    
+                <!-- Tour 2 -->
+                <div class="tour-content-item row fade-in">
+                    <div class="tour-content-item-img">
+                        <img src="Hinh/hue1.jpg" alt="Hue" onclick="openModal('Hinh/hue1.jpg')">
+                    </div>
+                    <div class="tour-content-item-text">
+                        <h2 data-i18n="hue">Huế</h2>
+                        <p data-i18n="hue_desc"></p>
+                        <a href="hue.html"><button class="btn" data-i18n="learn_more">Tìm Hiểu</button></a>
+                    </div>
+                </div>
+    
+                <!-- Tour 3 -->
+                <div class="tour-content-item row fade-in">
+                    <div class="tour-content-item-img">
+                        <img src="Hinh/phongnha1.jpg" alt="Phong Nha" onclick="openModal('Hinh/phongnha1.jpg')">
+                    </div>
+                    <div class="tour-content-item-text">
+                        <h2 data-i18n="phongnha">Động Phong Nha</h2>
+                        <p data-i18n="phongnha_desc"></p>
+                        <a href="phongnha.html"><button class="btn" data-i18n="learn_more">Tìm Hiểu</button></a>
+                    </div>
+                </div>
+    
+                <!-- Tour 4 -->
+                <div class="tour-content-item row fade-in">
+                    <div class="tour-content-item-img">
+                        <img src="Hinh/sapa.jpg" alt="Sa Pa" onclick="openModal('Hinh/sapa.jpg')">
+                    </div>
+                    <div class="tour-content-item-text">
+                        <h2 data-i18n="sapa">Sa Pa</h2>
+                        <p data-i18n="sapa_desc"></p>
+                        <a href="sapa.html"><button class="btn" data-i18n="learn_more">Tìm Hiểu</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+      <!----------------Review------------------>
+      <section id="review" class="review">
+        <div class="container">
+          <h1 class="section-title fade-in">Phản hồi</h1>
+      
+          <div class="carousel-container">
+            <div class="carousel" id="reviewCarousel">
+              <!-- Review 1 -->
+              <div class="carousel-slide fade-in">
+                <div class="review-item-text">
+                  <img src="image/quotes.png" alt="">
+                  <p><span>&ldquo;</span>Đứng giữa Vịnh Hạ Long, cảm nhận sự nhỏ bé của con người trước vẻ đẹp bao la, kỳ diệu của tạo hóa. Mỗi hòn đảo như một tác phẩm nghệ thuật độc đáo, khơi gợi trong ta niềm trân trọng sâu sắc với thiên nhiên.</p>
+                </div>
+                <div class="review-item-img row">
+                  <img src="Hinh/a1.jpg" alt="">
+                  <div class="review-item-img-text">
+                    <h2>Ngô Sỹ Nguyên</h2>
+                    <p>18/6/2023</p>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- Review 2 -->
+              <div class="carousel-slide fade-in">
+                <div class="review-item-text">
+                  <img src="image/quotes.png" alt="">
+                  <p><span>&ldquo;</span>Đến Huế, không chỉ ngắm nhìn những công trình cổ kính mà còn cảm nhận được dòng chảy chậm rãi của thời gian, lắng nghe những câu chuyện lịch sử ẩn sau từng mái ngói, từng con phố. Một nơi để tìm về sự tĩnh lặng trong tâm hồn.</p>
+                </div>
+                <div class="review-item-img row">
+                  <img src="Hinh/a2.jpg" alt="">
+                  <div class="review-item-img-text">
+                    <h2>Trần Thị Mai</h2>
+                    <p>5/8/2024</p>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- Review 3 -->
+              <div class="carousel-slide fade-in">
+                <div class="review-item-text">
+                  <img src="image/quotes.png" alt="">
+                  <p><span>&ldquo;</span>Bước vào những hang động ở Phong Nha, ta như lạc vào một thế giới khác, nơi sự kiên nhẫn và sức mạnh của tự nhiên đã tạo nên những kỳ quan tráng lệ. Cảm giác choáng ngợp xen lẫn sự ngưỡng mộ, nhắc nhở ta về sự kỳ diệu của hành tinh này.</p>
+                </div>
+                <div class="review-item-img row">
+                  <img src="Hinh/a3.jpg" alt="">
+                  <div class="review-item-img-text">
+                    <h2>Phạm Văn Hòa</h2>
+                    <p>2/2/2025</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Nút điều hướng -->
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+          </div>
+        </div>
+      </section>
+      
+
+<!-----------------Liên Hệ-------------->
+<!-- Signup Section -->
+<section id="signup" class="signup">
+  <h1 class="section-title" data-i18n="signup_title">Sign Up</h1>
+  <div class="signup-content">
+    <input type="text" id="signup-email" placeholder="Email">
+    <button class="btn" onclick="handleContact()" data-i18n="send_button">Send</button>  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <div class="container">
+    <h1 class="section-title" data-i18n="contact_title">Contact</h1>
+    <div class="contact-content-top row">
+      <div class="contact-content-item">
+        <input type="text" id="contact-name" placeholder="Name">
+      </div>
+
+      <div class="contact-content-item">
+        <input type="text" id="contact-address" placeholder="Address">
+      </div>
+
+      <div class="contact-content-item">
+        <input type="text" id="contact-email" placeholder="Email">
+      </div>
+
+      <div class="contact-content-item">
+        <input type="text" id="contact-phone" placeholder="Phone">
+      </div>
+    </div>
+
+    <div class="contact-content-bottom">
+      <textarea id="contact-message" placeholder="Message"></textarea>
+      <button class="btn" onclick="handleContact()" data-i18n="send_button">Send</button>    </div>
+  </div>
+</section>
+
+
+  <script src="script.js"></script>
+  <script>
+    document.querySelector('.fa-bars').addEventListener('click', () => {
+      document.querySelector('.header-top ul').classList.toggle('active');
+    });
+  </script>
+<footer class="footer-contact">
+  <div class="footer-container">
+    <!-- Cột: Thông tin liên hệ -->
+    <div class="footer-column">
+      <h3>Liên hệ</h3>
+      <ul class="contact">
+        <li class="icon">
+          <img src="Hinh/phone.jpg" alt="Phone" />
+          <span class="tooltip">☎️ 0325992413</span>
+        </li>
+        <li class="icon">
+          <img src="Hinh/email.jpg" alt="Email" />
+          <span class="tooltip">CTYTRAVELDEBAO@gmail.vn</span>
+        </li>
+        <li class="icon">
+          <img src="Hinh/zalo.png" alt="Zalo" />
+          <span class="tooltip"><a href="https://chat.zalo.me/Bảo" target="_blank">Zalo</a></span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Cột: Mạng xã hội -->
+    <div class="footer-column">
+      <h3>Mạng xã hội</h3>
+      <ul class="contact">
+        <li class="icon">
+          <img src="Hinh/fb.jpg" alt="Facebook" />
+          <span class="tooltip"><a href="https://facebook.com/Congty" target="_blank">Facebook</a></span>
+        </li>
+        <li class="icon">
+          <img src="Hinh/link.png" alt="LinkedIn" />
+          <span class="tooltip"><a href="https://linkedin.com/in/Congty/" target="_blank">LinkedIn</a></span>
+        </li>
+        <li class="icon">
+          <img src="Hinh/app.png" alt="WhatsApp" />
+          <span class="tooltip"><a href="https://wa.me/0325992413" target="_blank">WhatsApp</a></span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Cột: Thông tin thêm -->
+    <div class="footer-column">
+      <h3 data-i18n="other_info_title">Thông tin khác</h3>
+      <p data-i18n="headquarters_address">Trụ sở Trung Ương: Tầng 7, Tháp mật 3, Khu vực Liên Hiệp Alpha Centauri.</p>
+      <p data-i18n="support_hours">Thời gian hỗ trợ khách hàng: 8:00 - 22:00 tất cả các ngày trong tuần</p>
+      <p data-i18n="contact_email">Liên hệ bộ phận Chăm sóc Khách hàng qua email: support@tourviet.vn để được hỗ trợ nhanh chóng.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

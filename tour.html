@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/s4f0cb7e4a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Tour Du Lịch</title>
+    <link rel="stylesheet" href="tour.css">
+</head>
+<body>
+
+    <div class="language-switcher">
+        <button id="vietnamese">
+          <img src="Hinh/vn.jpg" alt="VN" class="flag-icon">
+          <span>Tiếng Việt</span>
+        </button>
+        <button id="english">
+          <img src="Hinh/eng.jpg" alt="UK" class="flag-icon">
+          <span>English</span>
+        </button>
+      </div>
+
+      <section class="main-content">
+        <!-- Phần 1: Thanh tìm kiếm và thanh kéo giá -->
+        <div class="sidebar">
+            <h2 class="search-tour" data-i18n="search_tour">Tìm Kiếm Tour</h2>
+      
+          <!-- Thanh tìm kiếm -->
+          <div class="search-container" style="position: relative;">
+            <input type="text" id="searchInput" placeholder="Tìm Kiếm Địa Điểm" data-i18n-placeholder="search_placeholder" oninput="searchFunction()">
+            <ul id="searchResults"></ul>
+          </div>
+      
+          <h3 data-i18n="filter_by_price">Lọc theo Giá</h3>
+      
+          <!-- Thanh kéo giá -->
+          <label for="price-range" data-i18n="tour_price">Giá Tour:</label>
+          <input type="range" id="price-range" min="0" max="6000000" step="100000" value="3000000">
+          <p id="price-value" data-i18n="price_value">Giá: 3,000,000 VND</p>
+        </div>
+      
+
+       <!-- Phần 2: Các địa điểm và mô tả -->
+<!-- Vịnh Hạ Long -->
+<div class="place-item" data-price="2000000">
+    <div class="place-img">
+      <a href="halong.html"><img src="Hinh/halong.jpg" alt="Vịnh Hạ Long"></a>
+    </div>
+    <div class="place-text">
+      <h2 data-i18n="halong_title">Vịnh Hạ Long</h2>
+      <div class="stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      </div>
+      <p data-i18n="halong_description">Vịnh Hạ Long, kỳ quan thiên nhiên nổi tiếng với hàng ngàn đảo đá vôi kỳ vĩ.</p>
+      <p class="price" data-i18n="halong_price">Giá: 2,000,000 VND</p>
+      <button onclick="openModal()" data-i18n="book_tour_button">Đặt Tour</button>
+    </div>
+  </div>
+  
+  <!-- Huế -->
+  <div class="place-item" data-price="800000">
+    <div class="place-img">
+      <a href="hue.html"><img src="Hinh/hue.jpg" alt="Huế"></a>
+    </div>
+    <div class="place-text">
+      <h2 data-i18n="hue_title">Huế</h2>
+      <div class="stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      </div>
+      <p data-i18n="hue_description">Huế, cố đô nổi tiếng với các di tích lịch sử và cảnh đẹp thơ mộng.</p>
+      <p class="price" data-i18n="hue_price">Giá: 800,000 VND</p>
+      <button onclick="openModal()" data-i18n="book_tour_button">Đặt Tour</button>
+    </div>
+  </div>
+  
+  <!-- Phong Nha -->
+  <div class="place-item" data-price="4000000">
+    <div class="place-img">
+      <a href="phongnha.html"><img src="Hinh/phongnha.jpg" alt="Phong Nha"></a>
+    </div>
+    <div class="place-text">
+      <h2 data-i18n="phongnha_title">Động Phong Nha</h2>
+      <div class="stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      </div>
+      <p data-i18n="phongnha_description">Phong Nha, vương quốc hang động với những kỳ quan tự nhiên tuyệt đẹp.</p>
+      <p class="price" data-i18n="phongnha_price">Giá: 4,000,000 VND</p>
+      <button onclick="openModal()" data-i18n="book_tour_button">Đặt Tour</button>
+    </div>
+  </div>
+  
+  <!-- Sa Pa -->
+  <div class="place-item" data-price="5000000">
+    <div class="place-img">
+      <a href="sapa.html"><img src="Hinh/sapa.jpg" alt="Sa Pa"></a>
+    </div>
+    <div class="place-text">
+      <h2 data-i18n="sapa_title">Sa Pa</h2>
+      <div class="stars">
+        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+      </div>
+      <p data-i18n="sapa_description">Sa Pa, thị trấn vùng cao với cảnh sắc thiên nhiên hùng vĩ và bản sắc văn hóa độc đáo.</p>
+      <p class="price" data-i18n="sapa_price">Giá: 5,000,000 VND</p>
+      <button onclick="openModal()" data-i18n="book_tour_button">Đặt Tour</button>
+    </div>
+  </div>
+  
+  
+ <!-- Cửa sổ Modal -->
+ <div id="tourModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Đặt Tour</h2>
+      <form id="tourForm">
+        <label for="name">Họ tên:</label>
+        <input type="text" id="name" name="name" placeholder="Nhập họ tên" required>
+
+        <label for="phone">Số điện thoại:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Nhập email" required>
+
+        <p>Số người:</p>
+        <input type="number" id="people" name="people" min="1" placeholder="Bạn đi bao nhiêu người" required>
+
+        <p>Ngày đi:</p>
+        <input type="date" id="date" name="date" required>
+
+        <button type="submit">Gửi Đặt Tour</button>
+      </form>
+      <div id="successMessage" style="display: none;">
+        <p style="color: green;">Đặt tour thành công!</p>
+    </div>
+    
+      </div>
+  </div>
+</div>
+</div>
+    <!-- Nút quay lại trang chủ -->
+    <a href="index.html" class="back-button">Quay lại</a>
+
+    <script src="tour.js"></script>
+
+</body>
+</html>

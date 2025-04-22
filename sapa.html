@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sapa</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+
+<video autoplay muted loop id="background-video">
+    <source src="Video/sapa.mp4" type="video/mp4">
+</video>
+
+<div class="container">
+    <div class="content">
+        <h1 data-i18n="sapa_title">Sapa</h1>
+        <p data-i18n="sapa_paragraph_1"></p>
+        <p data-i18n="sapa_paragraph_2"></p>
+        
+        <div class="buttons">
+            <a href="index.html" class="back-button" data-i18n="back_button">Quay lại</a>
+            <a href="tour.html" class="back-button" data-i18n="book_tour_button">Đặt tua</a>
+        </div>
+    </div>
+
+    <div class="media">
+        <video width="100%" controls>
+            <source src="video/sapa.mp4" type="video/mp4">
+        </video>
+        <img src="Hinh/sapa1.jpg" alt="Sapa">
+        <img src="Hinh/sapa2.jpg" alt="Sapa">
+    </div>
+</div>
+
+<!-- Google Maps Embed -->
+<div id="map-container">
+    <iframe 
+        id="google-map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.338293114406!2d103.8887267!3d22.3211338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142154991c92b1b%3A0x2a561be2a0e3289b!2zU2FwYSwgVmlldG5hbQ=="
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+<!-- Language Switcher -->
+<div class="language-switcher">
+    <button id="language-toggle" onclick="toggleLanguage()">
+        <img id="language-icon" class="flag-icon" src="Hinh/vn.jpg" alt="Language Icon">
+    </button>
+</div>
+
+<script src="dichsapa.js"></script>
+</body>
+</html>
